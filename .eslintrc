@@ -18,9 +18,22 @@
         "project": "./tsconfig.eslint.json",
         "tsconfigRootDir": "."
     },
-    "plugins": ["@typescript-eslint", "prettier", "jest"],
+    "plugins": [
+        "@typescript-eslint",
+        "prettier",
+        "jest"
+    ],
+    "ignorePatterns": ["*.js"],
     "rules": {
-        "prettier/prettier": "error",
+        "prettier/prettier": [
+            "error",
+            {
+                "trailingComma": "all",
+                "singleQuote": true,
+                "printWidth": 100,
+                "useTabs": true
+            }
+        ],
         "arrow-body-style": "off",
         "prefer-arrow-callback": "off"
     }

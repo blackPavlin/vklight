@@ -1,6 +1,6 @@
 import sinon from 'sinon';
 import got from 'got';
-import VK from '../../src';
+import VK from '../src';
 import fixtures from './__fixtures__';
 
 describe('Request test', () => {
