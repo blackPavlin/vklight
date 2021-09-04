@@ -4,7 +4,7 @@ import Throttle, { DefaultOptions, ThrottleOptions } from './modules/throttle';
 import Upload from './modules/upload';
 
 export type Options = {
-	accessToken: string;
+	token: string;
 	lang?: string;
 	request?: RequestOptions;
 	throttle?: ThrottleOptions;
@@ -17,7 +17,7 @@ export default class VK {
 		}
 
 		const defaultOptions: DefaultOptions = {
-			accessToken: options.accessToken,
+			token: options.token,
 			lang: options.lang || 'ru',
 			version: '5.130',
 		};
@@ -27,9 +27,9 @@ export default class VK {
 		this.upload = new Upload(this._request, this._throttle);
 	}
 
-	private _request: Request;
+	private readonly _request: Request;
 
-	private _throttle: Throttle;
+	private readonly _throttle: Throttle;
 
 	public api<R>(method: string, params?: ParsedUrlQueryInput): Promise<R> {
 		return this._throttle.setQuery(method, params);

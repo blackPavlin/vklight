@@ -29,7 +29,7 @@ describe('Request test', () => {
 
 	it('Success request with execute on', async () => {
 		const vk = new VK({
-			accessToken: 'acess_token',
+			token: 'acess_token',
 			throttle: {
 				executeON: true,
 			},
@@ -48,7 +48,7 @@ describe('Request test', () => {
 
 	it('Success request with execute off', async () => {
 		const vk = new VK({
-			accessToken: 'acess_token',
+			token: 'acess_token',
 			throttle: {
 				executeON: false,
 			},
@@ -62,7 +62,7 @@ describe('Request test', () => {
 
 	it('Failed request with execute on', async () => {
 		const vk = new VK({
-			accessToken: 'acess_token',
+			token: 'acess_token',
 			throttle: {
 				executeON: true,
 			},
@@ -80,7 +80,7 @@ describe('Request test', () => {
 
 	it('Failed request with execute off', async () => {
 		const vk = new VK({
-			accessToken: 'acess_token',
+			token: 'acess_token',
 			throttle: {
 				executeON: false,
 			},
@@ -93,7 +93,7 @@ describe('Request test', () => {
 
 	it('Failed execute request', async () => {
 		const vk = new VK({
-			accessToken: 'acess_token',
+			token: 'acess_token',
 			throttle: {
 				executeON: true,
 			},
@@ -107,7 +107,7 @@ describe('Request test', () => {
 
 	it('Error request with execute on', async () => {
 		const vk = new VK({
-			accessToken: 'acess_token',
+			token: 'acess_token',
 			throttle: {
 				executeON: true,
 			},
@@ -121,7 +121,7 @@ describe('Request test', () => {
 
 	it('Error request with execute off ', async () => {
 		const vk = new VK({
-			accessToken: 'acess_token',
+			token: 'acess_token',
 			throttle: {
 				executeON: false,
 			},

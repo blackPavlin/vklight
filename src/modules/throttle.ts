@@ -13,7 +13,7 @@ export type ThrottleOptions = {
 };
 
 export type DefaultOptions = {
-	accessToken: string;
+	token: string;
 	lang: string;
 	version: string;
 };
@@ -37,9 +37,9 @@ export default class Throttle {
 
 	private readonly _baseURL = 'https://api.vk.com/method/';
 
-	private _executeON: boolean;
+	private readonly _executeON: boolean;
 
-	private _throttleInterval: number;
+	private readonly _throttleInterval: number;
 
 	private _throttlerSleep = true;
 
@@ -63,13 +63,13 @@ export default class Throttle {
 	private _throttler(): void {
 		const timerID = setInterval(async (): Promise<void> => {
 			if (this._requestQueue.length === 0) {
-				this._throttlerSleep === true;
+				this._throttlerSleep = true;
 				clearInterval(timerID);
 
 				return;
 			}
 
-			this._throttlerSleep === false;
+			this._throttlerSleep = false;
 
 			if (this._executeON) {
 				const queuePart = this._requestQueue.splice(0, 25);
@@ -86,7 +86,7 @@ export default class Throttle {
 
 				try {
 					const { response, execute_errors, error } = await this._request.post(path, {
-						access_token: this._defaultOptions.accessToken,
+						access_token: this._defaultOptions.token,
 						lang: this._defaultOptions.lang,
 						v: this._defaultOptions.version,
 						code,
@@ -111,7 +111,7 @@ export default class Throttle {
 
 				try {
 					const { response, error } = await this._request.post(path, {
-						access_token: this._defaultOptions.accessToken,
+						access_token: this._defaultOptions.token,
 						lang: this._defaultOptions.lang,
 						v: this._defaultOptions.version,
 						...params,

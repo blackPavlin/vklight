@@ -23,7 +23,7 @@
         "prettier",
         "jest"
     ],
-    "ignorePatterns": ["*.js"],
+    "ignorePatterns": ["node_modules/*", "dist/*","*.js"],
     "rules": {
         "prettier/prettier": [
             "error",
